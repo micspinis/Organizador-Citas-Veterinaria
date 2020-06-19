@@ -4,7 +4,7 @@ import Formulario from './components/Formulario';
 
 function App() {
   return (
-    <fragment>
+    <Fragment>
       {/* Estaremos utilizando skeleton */}
       <h1>Administrador de pacientes</h1>
       <div className="container">
@@ -17,7 +17,7 @@ function App() {
           </div>
         </div>            
       </div>
-    </fragment>
+    </Fragment>
   );
 }
 
