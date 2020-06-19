@@ -12,8 +12,17 @@ const Formulario = () => {
     })
     // Para poder usar la funcion actualizarCita y llenar el state usamos eventos.
     // Funcion que se ejecuta cada que el usuario escribe en un input.
-    const actualizarState = () => {
-        console.log('escribiendo...');
+    // como argumentp del arrow function le pasamos en eventp -> e
+    const actualizarState = e => {
+        actualizarCita({
+            // Copiamos el state para que no se reescriba y pueda almacenar
+            ...cita,
+            // mapeamos el valor al nombre correspondiente, los names en los inputs son iguales que los valores en el state
+            [ e.target.name ]: e.target.value
+        })
+
+    // Extraer los valores con destructuring
+    // const { mascota, propietario, fecha, hora, sintomas } = cita;
         
     }
     return ( 
@@ -29,6 +38,8 @@ const Formulario = () => {
                     placeholder="Nombre Mascota"
                     // Evento en react
                     onChange={actualizarState}
+                    // valores extraidos del state
+                    // value={ mascota }
                 />
                 <label>Nombre Dueño</label>
                 <input
@@ -39,6 +50,8 @@ const Formulario = () => {
                     placeholder="Nombre Dueño de la Mascota"
                     // Evento en react
                     onChange={actualizarState}
+                    // valores extraidos del state
+                    // value={propietario}
                 />
                 <label>Fecha</label>
                 <input
@@ -47,7 +60,9 @@ const Formulario = () => {
                     // Skeleton
                     className="u-full-width" 
                     // Evento en react
-                    onChange={actualizarState}                   
+                    onChange={actualizarState}  
+                    // valores extraidos del state
+                    // value={fecha}                 
                 />
                 <label>Hora</label>
                 <input
@@ -57,6 +72,8 @@ const Formulario = () => {
                     className="u-full-width" 
                     // Evento en react
                     onChange={actualizarState}                   
+                    // valores extraidos del state
+                    // value={hora}
                 />
                 <label>Síntomas</label>
                 <textarea
@@ -64,6 +81,8 @@ const Formulario = () => {
                     name="sintomas"
                     // Evento en react
                     onChange={actualizarState}
+                    // valores extraidos del state
+                    // value={sintomas}
                 ></textarea>
                 <button
                     type="submit"
