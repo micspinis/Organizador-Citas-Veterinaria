@@ -19,16 +19,31 @@ const Formulario = () => {
             ...cita,
             // mapeamos el valor al nombre correspondiente, los names en los inputs son iguales que los valores en el state
             [ e.target.name ]: e.target.value
-        })
+        })}
 
     // Extraer los valores con destructuring
-    // const { mascota, propietario, fecha, hora, sintomas } = cita;
+    const { mascota, propietario, fecha, hora, sintomas } = cita;
         
+    // Cuando el usuario presiona agregar cita
+    const submitCita = e => {
+        // Prevenir la accion por defecto
+        e.preventDefault();
+        
+        // Validar
+        
+        // Asignar in ID
+
+        // Crear la cita
+
+        // Reiniciar el form
     }
+
     return ( 
         <Fragment>
             <h1>Crear Cita</h1>
-            <form>
+            <form
+                onSubmit={submitCita}
+            >
                 <label>Nombre Mascote</label>
                 <input
                     type="text"
@@ -39,7 +54,7 @@ const Formulario = () => {
                     // Evento en react
                     onChange={actualizarState}
                     // valores extraidos del state
-                    // value={ mascota }
+                    value={ mascota }
                 />
                 <label>Nombre Dueño</label>
                 <input
@@ -51,7 +66,7 @@ const Formulario = () => {
                     // Evento en react
                     onChange={actualizarState}
                     // valores extraidos del state
-                    // value={propietario}
+                    value={propietario}
                 />
                 <label>Fecha</label>
                 <input
@@ -62,7 +77,7 @@ const Formulario = () => {
                     // Evento en react
                     onChange={actualizarState}  
                     // valores extraidos del state
-                    // value={fecha}                 
+                    value={fecha}                 
                 />
                 <label>Hora</label>
                 <input
@@ -73,7 +88,7 @@ const Formulario = () => {
                     // Evento en react
                     onChange={actualizarState}                   
                     // valores extraidos del state
-                    // value={hora}
+                    value={hora}
                 />
                 <label>Síntomas</label>
                 <textarea
@@ -82,7 +97,7 @@ const Formulario = () => {
                     // Evento en react
                     onChange={actualizarState}
                     // valores extraidos del state
-                    // value={sintomas}
+                    value={sintomas}
                 ></textarea>
                 <button
                     type="submit"
