@@ -1,4 +1,6 @@
 import React, {Fragment, useState} from 'react';
+// Como esta proyecto no usa base de datos, para asignar un id unico instalamos npm i uuid
+import { v4 as uuidv4 } from 'uuid';
 
 const Formulario = () => {
 
@@ -38,8 +40,13 @@ const Formulario = () => {
             actualizarError(true);
             return;
         }
+        // Modificar el mensaje previo
+        actualizarError(false);
         
         // Asignar in ID
+        cita.id = uuidv4(); //Generar id unicos
+
+        
 
         // Crear la cita
 
