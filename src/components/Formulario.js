@@ -10,6 +10,10 @@ const Formulario = () => {
         hora: '',
         sintomas: '',
     })
+
+    // Agregamos un segundo state para notificar al usuario que debe llenar todos los campos
+    const [ error, actualizarError ] = useState(false)
+
     // Para poder usar la funcion actualizarCita y llenar el state usamos eventos.
     // Funcion que se ejecuta cada que el usuario escribe en un input.
     // como argumentp del arrow function le pasamos en eventp -> e
@@ -30,6 +34,10 @@ const Formulario = () => {
         e.preventDefault();
         
         // Validar
+        if (mascota.trim() === "" || propietario.trim() === "" || fecha.trim() === "" || hora.trim() === "" || sintomas.trim() === "") {
+            actualizarError(true);
+            return;
+        }
         
         // Asignar in ID
 
@@ -41,6 +49,12 @@ const Formulario = () => {
     return ( 
         <Fragment>
             <h1>Crear Cita</h1>
+
+            {error
+            ? <p className='alerta-error'>Todos los campos son obligatorios</p>
+            : null
+            }
+
             <form
                 onSubmit={submitCita}
             >
