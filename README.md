@@ -1,6 +1,6 @@
 # Citas para Macotas
 
-Esta aplicacion sirve para administrar y generar citas pata tus mascotas.
+Esta aplicacion tiene como onjetivo administrar y generar citas para tus mascotas.
 Se requieren cinco campos:
 * Nombre de tu mascota
 * Nombre del dueño de la mascota
