@@ -5,13 +5,23 @@ import Cita from './components/Cita';
 
 function App() {
 
+  // Citas en local starage
+  let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+  if (!citasIniciales) {
+    citasIniciales = [];
+  }
+
   // Arreglo de citas
-  const [ citas, guardarCitas ] = useState([]);
+  const [ citas, guardarCitas ] = useState(citasIniciales);
 
   // Use Effect para realizar ciertas acciones cuando el state cambia
   // Para que useEffect se ejecute solo una vez, se le debe pasar un arreglo vacio.
   useEffect( () => {
-    console.log('Documento listo o algo paso con las citas');
+    if (citasIniciales) {
+      localStorage.setItem('citas', JSON.stringify(citas))
+    } else {
+      localStorage.setItem('citas', JSON.stringify([]))
+    }
     // Ponemos citas, asi cada vez que cambie el state citas, tambien cambia el useEffect 
   }, [citas] );
 
