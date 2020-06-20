@@ -2,7 +2,7 @@ import React, {Fragment, useState} from 'react';
 // Como esta proyecto no usa base de datos, para asignar un id unico instalamos npm i uuid
 import { v4 as uuidv4 } from 'uuid';
 
-const Formulario = () => {
+const Formulario = ({ crearCita }) => {
 
     // Crear State de citas
     const [ cita, actualizarCita ] = useState({
@@ -46,9 +46,8 @@ const Formulario = () => {
         // Asignar in ID
         cita.id = uuidv4(); //Generar id unicos
 
-        
-
         // Crear la cita
+        crearCita(cita);
 
         // Reiniciar el form
     }
